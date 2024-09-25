@@ -1,0 +1,504 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styles */
+nav {
+  background-color: white;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Navbar Top */
+.top_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  position: relative; /* Ensure hamburger can be positioned correctly */
+}
+
+/* Navbar Logo */
+.logo h1 {
+  font-size: 24px;
+  margin: 0;
+  color: black;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+/* Navbar Search */
+.search_container {
+  display: flex;
+  align-items: center;
+  position: relative; /* Position relative for icon positioning */
+  flex-grow: 1;
+  max-width: 600px; /* Limit the width on larger screens */
+  margin: 0 auto;
+}
+
+.search_input {
+  padding: 8px 40px 8px 10px; /* Adjust padding to accommodate icon */
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  width: 100%; /* Full width by default */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.search_icon {
+  position: absolute;
+  right: 10px; /* Position the icon inside the input */
+  font-size: 18px;
+  color: #aaa; /* Adjust color as needed */
+}
+
+.search_icon:hover {
+  color: #f0660a; /* Change icon color on hover */
+}
+
+/* Navbar Cart */
+.cart {
+  position: relative; /* Make cart position relative */
+}
+
+.cart i {
+  font-size: 24px;
+}
+
+/* Bottom Navigation (Links) */
+.bottom_nav {
+  background-color: #222;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.nav_menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.nav_menu li {
+  position: relative;
+}
+
+.nav_menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+.nav_menu a:hover {
+  color: #b9b4b4;
+}
+
+/* Dropdown Menu */
+.dropdown_menu {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  z-index: 2000;
+}
+
+.dropdown_menu li {
+  width: 100%;
+}
+
+.dropdown_menu a {
+  padding: 10px;
+  color: white;
+}
+
+.dropdown:hover .dropdown_menu {
+  display: block;
+}
+
+.arrow {
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.menu-item.open .arrow {
+  transform: rotate(90deg); /* Rotate arrow when menu is open */
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transform: translateX(-100%); /* Hide off-screen */
+  transition: transform 0.3s ease;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  padding-top: 60px; /* Space for top padding, adjust as needed */
+}
+
+/* Show Sidebar when active */
+.mobile-sidebar.active {
+  transform: translateX(0); /* Show the sidebar when active */
+}
+
+.mobile-sidebar .close-sidebar {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 15px;
+  text-align: right;
+  background-color: #444; /* Slightly different background for close button */
+}
+
+.mobile-sidebar .close-sidebar i {
+  color: white;
+}
+
+/* Navigation Links in Mobile Sidebar */
+.mobile-sidebar .nav_menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Allow the menu to grow and take available space */
+}
+
+.mobile-sidebar .nav_menu li {
+  width: 100%; /* Ensure items take full width */
+}
+
+.mobile-sidebar .nav_menu a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #444; /* Separator between menu items */
+}
+
+.mobile-sidebar .nav_menu a:hover {
+  background-color: #555; /* Background color on hover */
+}
+
+/* Hide all submenus in mobile sidebar by default */
+.mobile-sidebar .submenu {
+  list-style: none;
+  display: none;
+}
+
+.mobile-sidebar .menu-item.active .submenu {
+  display: block; /* Show submenu when parent is active */
+}
+
+/* Mobile Hamburger Menu */
+.hamburger-menu {
+  display: none; /* Hidden by default, shown on mobile */
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  left: 10px; /* Move it to the left side */
+  top: 20px; /* Adjust the vertical position as needed */
+}
+
+.cart-display.active {
+  display: block;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.cart-total {
+  font-weight: bold;
+  padding-top: 20px;
+}
+
+.cart-count {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+.cart {
+  position: relative;
+}
+
+/* Submenu Styles */
+.submenu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transform: translateX(100%); /* Hide off-screen */
+  transition: transform 0.3s ease;
+  z-index: 2001;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; /* Space for top padding */
+}
+
+.submenu-container.active {
+  transform: translateX(0); /* Show the submenu when active */
+}
+
+.submenu-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu-menu li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.submenu-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.submenu-menu li a:hover {
+  background-color: #555;
+}
+
+.close-submenu {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 15px;
+  text-align: right;
+  background-color: #444;
+}
+
+.close-submenu i {
+  color: white;
+}
+
+/* General Image Styles */
+img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.banner {
+  width: 100%;
+  overflow: hidden; /* Ensures no scroll bars appear */
+}
+
+.banner img {
+  width: 100%; /* Full width of the screen */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 600px; /* Adjust this value to control the maximum height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  display: block; /* Remove any space below the image */
+}
+
+/* Top Picks Section */
+.top_picks {
+  padding: 60px 30px; /* Adjusted padding */
+  margin-bottom: 60px; /* Space below the top picks section */
+  text-align: center;
+}
+
+.top_picks_title h2 {
+  margin-bottom: 20px;
+  font-size: 1.7em;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  gap: 20px;
+  padding: 0 150px; /* Add horizontal padding to create space on left and right */
+}
+
+.card {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Add a slight hover effect */
+}
+
+.card-content h4 {
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  color: black;
+}
+
+/* General Footer Styling */
+footer.updates_customer_service {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e9e6e6;
+  color: black;
+  padding: 40px 20px; /* Adjusted padding */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Footer Section Styling */
+/* General Footer Styling */
+footer.updates_customer_service {
+  display: flex;
+  justify-content: space-between;
+  background-color: #e9e6e6;
+  color: black;
+  padding: 40px 80px; /* Keep padding for better spacing */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Footer Section Styling */
+.updates, .customer_service {
+  flex: 1; /* Allow sections to grow and take available space */
+  min-width: 200px; /* Minimum width to ensure proper layout */
+  margin: 20px; /* Add margin for spacing between sections */
+}
+
+h3 {
+  margin-bottom: 15px; /* Increase margin for section headers */
+  color: black;
+}
+
+.signup-container {
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  border-radius: 5px; /* Optional: Add border radius for visual appeal */
+}
+
+.signup-form {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increase gap for spacing between input and button */
+}
+
+.signup-form input[type="email"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 70%;
+  font-size: 16px;
+}
+
+.signup-form button {
+  padding: 10px 10px; /* Adjust padding for better button size */
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signup-form button:hover {
+  background-color: #e65c00;
+}
+
+.customer_service_links li {
+  margin-bottom: 15px; /* Increase gap between links */
+  list-style-type: none;
+}
+
+.customer_service_links li a {
+  text-decoration: none;
+  color: black;
+}
+
+.customer_service_links li a:hover {
+  color: #706969;
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: block; /* Show hamburger on smaller screens */
+    top: 40px;
+  }
+
+  .top_nav {
+    flex-direction: column; /* Stack elements on smaller screens */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .bottom_nav {
+    display: none; /* Hide bottom nav on mobile */
+  }
+
+  .cart {
+    right: 10px; /* Move the cart closer on smaller screens */
+    top: 5px;
+  }
+
+  .mobile-sidebar {
+    width: 50%; /* Full width for mobile sidebar */
+  }
+
+  .mobile-sidebar .nav_menu {
+    padding: 10px; /* Add padding for mobile menu */
+  }
+
+
+  .banner img {
+    max-height: 300px; /* Reduce max height for smaller screens */
+  }
+
+  .card-container {
+    padding: 0 20px; /* Adjust horizontal padding for cards */
+  }
+
+  footer.updates_customer_service {
+    flex-direction: column; /* Stack footer sections on smaller screens */
+    align-items: flex-start; /* Align footer items to the left */
+  }
+
+  .updates, .customer_service {
+    width: 100%; /* Full width in footer for mobile */
+  }
+}
+
+@media (max-width: 500px) {
+  .cart {
+    right: 10px; /* Move the cart closer on smaller screens */
+  }
+
+  .top_picks_title h2 {
+    font-size: 1.5em; /* Adjust title size for smaller screens */
+  }
+}

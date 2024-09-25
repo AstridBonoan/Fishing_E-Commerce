@@ -1,0 +1,39 @@
+Purpose - A multipage fishing e-commerce web application
+
+Navbar - 2 levels (Top & Bottom)
+    - On top is the logo, search bar, and cart
+    - On the bottom are the nav links
+
+Pages
+    . Home
+    . Fishing Rods
+        - Casting Rods
+        - Spinning Rods
+        - Fly Rods
+
+    . Reels
+        - Casting Reels
+        - Spinning Reels
+        - Spincast Reels
+    
+    . Combos
+
+    . Bait
+        - Soft Bait
+        - Hard Bait
+        - Dough
+        - Attractant
+
+    . Line
+        - Monofilament
+        - Braid & Superlines
+        - Fly Line
+        - Leaders
+        - Fluorocarbon Line
+    
+    . Terminal Tackle
+
+    . Tools & Equipment
+
+    . Apparel
+
